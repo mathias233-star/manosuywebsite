@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManosUY - Conectando Profesionales con Proyectos en Uruguay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Variables de Colores */
+        :root {
+            --color-primary-dark: #2C3E50; /* Azul muy oscuro/casi negro */
+            --color-primary-blue: #3498DB; /* Azul más vibrante */
+            --color-secondary-accent: #FFA500; /* Naranja/Amarillo mostaza */
+            --color-text-light: #F8F8F8; /* Blanco casi puro */
+            --color-text-dark: #333333; /* Gris oscuro para texto */
+            --color-background-light: #ECF0F1; /* Gris claro para fondos */
+            --color-card-background: #FFFFFF; /* Blanco para tarjetas */
+            --color-border-subtle: #E0E0E0; /* Borde sutil */
+            --gradient-hero-start: #2C3E50; /* Azul oscuro para degradado */
+            --gradient-hero-end: #465A71; /* Un gris azulado más oscuro para degradado */
+        }
+
+        /* Estilos Generales */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: var(--color-text-dark);
+            background-color: var(--color-background-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-primary-dark);
+        }
+
+        /* Header / Navbar */
+        .header {
+            background-color: var(--color-card-background);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 8px;
+            color: var(--color-secondary-accent);
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-primary-dark);
+            font-weight: 600;
+            font-size: 17px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary-blue);
+        }
+
+        .nav-links .btn-login {
+            background-color: var(--color-secondary-accent);
+            color: var(--color-text-light);
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .nav-links .btn-login:hover {
+            background-color: #e09400; /* Un poco más oscuro */
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--gradient-hero-start) 0%, var(--gradient-hero-end) 100%);
+            color: var(--color-text-light);
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: var(--color-text-light);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+        }
+
+        .hero-buttons .btn-primary {
+            background-color: var(--color-secondary-accent);
+            color: var(--color-text-light);
+            border: 2px solid var(--color-secondary-accent);
+        }
+
+        .hero-buttons .btn-primary:hover {
+            background-color: #e09400;
+            border-color: #e09400;
+            transform: translateY(-3px);
+        }
+
+        .hero-buttons .btn-secondary {
+            background-color: transparent;
+            color: var(--color-text-light);
+            border: 2px solid var(--color-text-light);
+        }
+
+        .hero-buttons .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .why-choose h2 {
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .why-choose h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--color-primary-blue);
+            border-radius: 2px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background-color: var(--color-card-background);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 220px; /* Asegura una altura mínima para todas las tarjetas */
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .benefit-card .icon {
+            font-size: 3.5em;
+            color: var(--color-primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        /* Ajuste de color para íconos específicos si es necesario */
+        .benefit-card .fa-star, .benefit-card .fa-comments {
+            color: var(--color-secondary-accent);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: var(--color-primary-dark);
+        }
+
+        .benefit-card p {
+            font-size: 1em;
+            color: #555;
+            flex-grow: 1; /* Permite que el párrafo ocupe el espacio disponible */
+        }
+
+        /* Chat Flotante */
+        .floating-chat-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--color-secondary-accent);
+            color: var(--color-text-light);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8em;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1000;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .floating-chat-button:hover {
+            background-color: #e09400;
+            transform: translateY(-3px);
+        }
+
+        /* Media Queries para Responsividad */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8em;
+            }
+            .hero p {
+                font-size: 1.1em;
+            }
+            .nav-links li {
+                margin-left: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-links li {
+                margin: 0 10px 10px 0;
+            }
+            .hero {
+                padding: 80px 20px;
+            }
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .hero-buttons .btn {
+                display: block;
+                margin: 15px 0;
+            }
+            .why-choose h2 {
+                font-size: 2em;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 24px;
+            }
+            .nav-links a, .nav-links .btn-login {
+                font-size: 15px;
+                padding: 8px 15px;
+            }
+            .hero h1 {
+                font-size: 1.8em;
+            }
+            .hero p {
+                font-size: 0.9em;
+            }
+            .floating-chat-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5em;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <i class="fas fa-handshake"></i> ManosUY
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Buscar Profesionales</a></li>
+                    <li><a href="#">Para Trabajadores</a></li>
+                    <li><a href="#">Proyectos</a></li>
+                    <li><a href="#" class="btn-login">Iniciar Sesión</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Conectamos Profesionales con Proyectos</h1>
+            <p>La plataforma líder en Uruguay para encontrar los mejores trabajadores de construcción y mantenimiento en tu zona. 🏡🛠️</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Registrarme como Profesional 💼</a>
+                <a href="#" class="btn btn-secondary">Buscar Profesionales 🔎</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="container">
+            <h2>¿Por qué elegir ManosUY?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon"><i class="fas fa-user-check"></i></div>
+                    <h3>Perfiles Verificados</h3>
+                    <p>Todos los profesionales son verificados con documentación e historial de trabajos realizados para tu tranquilidad. ✅</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon"><i class="fas fa-star"></i></div>
+                    <h3>Sistema de Calificaciones</h3>
+                    <p>Lee reseñas reales de clientes anteriores y califica tu experiencia para construir una comunidad confiable. ⭐</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon"><i class="fas fa-comments"></i></div>
+                    <h3>Chat Integrado</h3>
+                    <p>Comunícate directamente con los profesionales a través de nuestro chat interno de forma segura y eficiente. 💬</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon"><i class="fas fa-credit-card"></i></div>
+                    <h3>Pagos Seguros</h3>
+                    <p>Realiza y recibe pagos de forma protegida dentro de la plataforma, garantizando transacciones transparentes. 💳</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Notificaciones SMS</h3>
+                    <p>Mantente siempre al tanto con alertas y actualizaciones sobre tus proyectos y mensajes importantes. 📱</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon"><i class="fas fa-search-plus"></i></div>
+                    <h3>Búsqueda Avanzada</h3>
+                    <p>Encuentra el profesional ideal utilizando filtros específicos por oficio, ubicación y calificaciones. 🔍</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="floating-chat-button">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
