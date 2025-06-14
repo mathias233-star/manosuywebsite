@@ -4,17 +4,183 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Profesionales - ManosUY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; background-color: #e6f2ff; margin: 0; }
-        h1 { color: #2C3E50; text-align: center; font-size: 2.5em; }
-        p { margin-top: 20px; text-align: center; font-size: 1.2em; }
-        a { color: #3498DB; text-decoration: none; font-weight: bold; }
-        a:hover { text-decoration: underline; }
+        :root {
+            --color-text-dark: #333333;
+            --color-orange-accent: #FFA500;
+            --color-light-gray-bg: #F0F0F0;
+            --color-white-bg: #FFFFFF;
+        }
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; box-sizing: border-box; color: var(--color-text-dark); background-color: var(--color-white-bg); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; width: 100%; flex-grow: 1; }
+        .header { background-color: var(--color-white-bg); padding: 20px 0; border-bottom: 1px solid #E0E0E0; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .logo { font-family: 'Arial', sans-serif; font-size: 32px; font-weight: bold; color: var(--color-text-dark); text-decoration: none; display: flex; align-items: center; }
+        .logo i { margin-right: 8px; color: var(--color-orange-accent); font-size: 1em; }
+        .logo span { color: var(--color-orange-accent); margin-left: 5px; }
+        .nav-links { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; }
+        .nav-links li { margin-left: 25px; }
+        .nav-links a { text-decoration: none; color: var(--color-text-dark); font-weight: normal; font-size: 18px; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--color-orange-accent); }
+        .nav-links .btn-login { background-color: transparent; color: var(--color-text-dark); padding: 10px 20px; border: 2px solid var(--color-text-dark); border-radius: 5px; font-weight: normal; transition: background-color 0.3s ease, border-color 0.3s ease; }
+        .nav-links .btn-login:hover { background-color: var(--color-light-gray-bg); border-color: var(--color-orange-accent); }
+        
+        .search-section {
+            padding: 40px 0;
+            text-align: center;
+        }
+        .search-section h1 {
+            color: var(--color-text-dark);
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        .search-form {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap; /* Para que los elementos se ajusten en pantallas pequeñas */
+        }
+        .search-form input[type="text"],
+        .search-form select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 200px; /* Ancho fijo para los campos */
+        }
+        .search-form button {
+            background-color: var(--color-orange-accent);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .search-form button:hover {
+            background-color: #e09400;
+        }
+
+        .professionals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .professional-card {
+            background-color: var(--color-white-bg);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            text-align: center;
+        }
+        .professional-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 2px solid var(--color-orange-accent);
+        }
+        .professional-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--color-text-dark);
+            font-size: 1.4em;
+        }
+        .professional-card p {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .professional-card .contact-btn {
+            background-color: var(--color-text-dark); /* Botón oscuro */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+        .professional-card .contact-btn:hover {
+            background-color: #555;
+        }
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; align-items: center; }
+            .nav-links { margin-top: 20px; }
+            .nav-links li { margin: 0 10px 10px 0; }
+            .search-form { flex-direction: column; align-items: center; }
+            .search-form input, .search-form select, .search-form button { width: 80%; max-width: 300px; }
+        }
     </style>
 </head>
 <body>
-    <h1>¡Estás en la página de Buscar Profesionales! 🔎</h1>
-    <p>Aquí es donde los usuarios podrán explorar los perfiles de los trabajadores.</p>
-    <p><a href="index.html">Volver a la página principal</a></p>
+    <header class="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <i class="fas fa-handshake"></i> ManosUY<span>M</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="foro-proyectos.html">FORO</a></li>
+                    <li><a href="para-trabajadores.html">TRABAJADORES</a></li>
+                    <li><a href="login.html" class="btn-login">Iniciar sesion</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="search-section">
+            <h1>Buscar Profesionales 🔎</h1>
+            <form class="search-form">
+                <input type="text" placeholder="Especialidad (ej. Electricista)">
+                <input type="text" placeholder="Localidad (ej. Montevideo)">
+                <button type="submit">Buscar</button>
+            </form>
+
+            <div class="professionals-grid">
+                <div class="professional-card">
+                    <img src="https://via.placeholder.com/100/FFA500/FFFFFF?text=P1" alt="Foto de Profesional">
+                    <h3>Juan Pérez</h3>
+                    <p>Electricista certificado con 10 años de experiencia en instalaciones residenciales y comerciales.</p>
+                    <p>⭐ ⭐ ⭐ ⭐ (4.5)</p>
+                    <p>Montevideo</p>
+                    <a href="#" class="contact-btn">Ver Perfil / Contactar</a>
+                </div>
+                <div class="professional-card">
+                    <img src="https://via.placeholder.com/100/333333/FFFFFF?text=P2" alt="Foto de Profesional">
+                    <h3>María García</h3>
+                    <p>Plomera con especialización en reparaciones de emergencia y sistemas de riego.</p>
+                    <p>⭐ ⭐ ⭐ ⭐ ⭐ (5.0)</p>
+                    <p>Canelones</p>
+                    <a href="#" class="contact-btn">Ver Perfil / Contactar</a>
+                </div>
+                <div class="professional-card">
+                    <img src="https://via.placeholder.com/100/FFA500/FFFFFF?text=P3" alt="Foto de Profesional">
+                    <h3>Carlos Rodríguez</h3>
+                    <p>Albañil experto en reformas, construcción de muros y trabajos de revestimiento.</p>
+                    <p>⭐ ⭐ ⭐ ⭐ (4.0)</p>
+                    <p>Salto</p>
+                    <a href="#" class="contact-btn">Ver Perfil / Contactar</a>
+                </div>
+                 <div class="professional-card">
+                    <img src="https://via.placeholder.com/100/333333/FFFFFF?text=P4" alt="Foto de Profesional">
+                    <h3>Ana López</h3>
+                    <p>Pintora artística y de obra, ofrece servicios de pintura interior y exterior.</p>
+                    <p>⭐ ⭐ ⭐ ⭐ ⭐ (4.9)</p>
+                    <p>Colonia</p>
+                    <a href="#" class="contact-btn">Ver Perfil / Contactar</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
