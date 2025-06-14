@@ -8,39 +8,39 @@
     <style>
         /* Variables de Colores para el nuevo diseño */
         :root {
-            --color-text-dark: #333333; /* Gris oscuro para texto y bordes */
-            --color-orange-accent: #FFA500; /* Naranja para acentos principales */
-            --color-light-gray-bg: #F0F0F0; /* Fondo gris muy claro para botones */
-            --color-white-bg: #FFFFFF; /* Fondo blanco principal */
+            --color-text-dark: #333333;
+            --color-orange-accent: #FFA500;
+            --color-light-gray-bg: #F0F0F0;
+            --color-white-bg: #FFFFFF;
         }
 
         /* Estilos Generales */
         body {
-            font-family: 'Arial', sans-serif; /* Usamos una fuente más simple */
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             color: var(--color-text-dark);
-            background-color: var(--color-white-bg); /* Fondo blanco */
+            background-color: var(--color-white-bg);
             line-height: 1.6;
         }
 
         .container {
-            max-width: 1000px; /* Ancho un poco más estrecho para el contenido */
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         h1, h2, h3 {
-            font-family: 'Arial', sans-serif; /* Fuente simple para títulos */
+            font-family: 'Arial', sans-serif;
             color: var(--color-text-dark);
         }
 
         /* Header / Navbar */
         .header {
-            background-color: var(--color-white-bg); /* Fondo blanco */
+            background-color: var(--color-white-bg);
             padding: 20px 0;
-            border-bottom: 1px solid #E0E0E0; /* Borde sutil */
+            border-bottom: 1px solid #E0E0E0;
         }
 
         .navbar {
@@ -50,8 +50,8 @@
         }
 
         .logo {
-            font-family: 'Arial', sans-serif; /* Fuente simple */
-            font-size: 32px; /* Más grande */
+            font-family: 'Arial', sans-serif;
+            font-size: 32px;
             font-weight: bold;
             color: var(--color-text-dark);
             text-decoration: none;
@@ -61,12 +61,12 @@
 
         .logo i {
             margin-right: 8px;
-            color: var(--color-orange-accent); /* Color de acento */
-            font-size: 1em; /* Misma altura que el texto */
+            color: var(--color-orange-accent);
+            font-size: 1em;
         }
 
         .logo span {
-            color: var(--color-orange-accent); /* "UYM" en naranja */
+            color: var(--color-orange-accent);
             margin-left: 5px;
         }
 
@@ -85,7 +85,7 @@
         .nav-links a {
             text-decoration: none;
             color: var(--color-text-dark);
-            font-weight: normal; /* Menos negrita */
+            font-weight: normal;
             font-size: 18px;
             transition: color 0.3s ease;
         }
@@ -95,10 +95,10 @@
         }
 
         .nav-links .btn-login {
-            background-color: transparent; /* Fondo transparente */
+            background-color: transparent;
             color: var(--color-text-dark);
             padding: 10px 20px;
-            border: 2px solid var(--color-text-dark); /* Borde oscuro */
+            border: 2px solid var(--color-text-dark);
             border-radius: 5px;
             font-weight: normal;
             transition: background-color 0.3s ease, border-color 0.3s ease;
@@ -106,19 +106,19 @@
 
         .nav-links .btn-login:hover {
             background-color: var(--color-light-gray-bg);
-            border-color: var(--color-orange-accent); /* Borde naranja al pasar el mouse */
+            border-color: var(--color-orange-accent);
         }
 
         /* Hero Section */
         .hero {
-            background-color: var(--color-white-bg); /* Fondo blanco */
+            background-color: var(--color-white-bg);
             color: var(--color-text-dark);
             text-align: center;
-            padding: 100px 20px; /* Espaciado ajustado */
+            padding: 100px 20px;
         }
 
         .hero h1 {
-            font-size: 3em; /* Tamaño de fuente ajustado */
+            font-size: 3em;
             margin-bottom: 30px;
             color: var(--color-text-dark);
             font-weight: bold;
@@ -126,11 +126,11 @@
         }
 
         .hero p {
-            font-size: 1.1em; /* Párrafo más pequeño y menos destacado */
+            font-size: 1.1em;
             max-width: 600px;
             margin: 0 auto 50px;
             opacity: 0.8;
-            display: none; /* Ocultamos el párrafo si no lo quieres según el boceto simplificado */
+            display: none;
         }
 
         .hero-buttons .btn {
@@ -138,32 +138,32 @@
             padding: 15px 40px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: bold; /* Negrita para botones */
+            font-weight: bold;
             font-size: 1.2em;
             margin: 0 15px;
             transition: all 0.3s ease;
-            box-shadow: none; /* Eliminar sombras para un aspecto más plano */
+            box-shadow: none;
         }
 
-        .hero-buttons .btn-trabajador { /* Nuevo botón para "soy trabajador" */
+        .hero-buttons .btn-trabajador {
             background-color: var(--color-orange-accent);
             color: var(--color-text-dark);
-            border: 2px solid var(--color-text-dark); /* Borde gris oscuro */
+            border: 2px solid var(--color-text-dark);
         }
 
         .hero-buttons .btn-trabajador:hover {
-            background-color: #e09400; /* Naranja más oscuro */
+            background-color: #e09400;
             transform: translateY(-2px);
         }
 
-        .hero-buttons .btn-busco { /* Nuevo botón para "busco trabajador" */
-            background-color: var(--color-light-gray-bg); /* Fondo gris claro */
+        .hero-buttons .btn-busco {
+            background-color: var(--color-light-gray-bg);
             color: var(--color-text-dark);
-            border: 2px solid var(--color-orange-accent); /* Borde naranja */
+            border: 2px solid var(--color-orange-accent);
         }
 
         .hero-buttons .btn-busco:hover {
-            background-color: #DCDCDC; /* Gris un poco más oscuro */
+            background-color: #DCDCDC;
             transform: translateY(-2px);
         }
 
@@ -185,7 +185,7 @@
             .hero-buttons .btn {
                 display: block;
                 margin: 15px auto;
-                max-width: 280px; /* Limitar ancho en móvil */
+                max-width: 280px;
             }
         }
         @media (max-width: 480px) {
@@ -229,3 +229,12 @@
             </div>
         </div>
     </section>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
