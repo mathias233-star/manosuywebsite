@@ -3,18 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar Profesionales - ManosUY</title>
+    <title>Para Trabajadores - ManosUY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; background-color: #e6f2ff; margin: 0; }
-        h1 { color: #2C3E50; text-align: center; font-size: 2.5em; }
-        p { margin-top: 20px; text-align: center; font-size: 1.2em; }
-        a { color: #3498DB; text-decoration: none; font-weight: bold; }
-        a:hover { text-decoration: underline; }
+        :root {
+            --color-text-dark: #333333;
+            --color-orange-accent: #FFA500;
+            --color-light-gray-bg: #F0F0F0;
+            --color-white-bg: #FFFFFF;
+        }
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; box-sizing: border-box; color: var(--color-text-dark); background-color: var(--color-white-bg); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; width: 100%; flex-grow: 1; }
+        .header { background-color: var(--color-white-bg); padding: 20px 0; border-bottom: 1px solid #E0E0E0; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .logo { font-family: 'Arial', sans-serif; font-size: 32px; font-weight: bold; color: var(--color-text-dark); text-decoration: none; display: flex; align-items: center; }
+        .logo i { margin-right: 8px; color: var(--color-orange-accent); font-size: 1em; }
+        .logo span { color: var(--color-orange-accent); margin-left: 5px; }
+        .nav-links { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; }
+        .nav-links li { margin-left: 25px; }
+        .nav-links a { text-decoration: none; color: var(--color-text-dark); font-weight: normal; font-size: 18px; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--color-orange-accent); }
+        .nav-links .btn-login { background-color: transparent; color: var(--color-text-dark); padding: 10px 20px; border: 2px solid var(--color-text-dark); border-radius: 5px; font-weight: normal; transition: background-color 0.3s ease, border-color 0.3s ease; }
+        .nav-links .btn-login:hover { background-color: var(--color-light-gray-bg); border-color: var(--color-orange-accent); }
+        
+        .content-section {
+            padding: 40px 0;
+            text-align: center;
+        }
+        .content-section h1 {
+            color: var(--color-text-dark);
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        .content-section p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+            text-align: left;
+        }
+        .benefit-card {
+            background-color: var(--color-white-bg);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+        }
+        .benefit-card i {
+            font-size: 2.5em;
+            color: var(--color-orange-accent);
+            margin-bottom: 15px;
+        }
+        .benefit-card h3 {
+            margin-top: 0;
+            color: var(--color-text-dark);
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        .btn-register {
+            background-color: var(--color-orange-accent);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none; /* Para que parezca botón */
+            display: inline-block;
+            margin-top: 40px;
+        }
+        .btn-register:hover {
+            background-color: #e09400;
+        }
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; align-items: center; }
+            .nav-links { margin-top: 20px; }
+            .nav-links li { margin: 0 10px 10px 0; }
+        }
     </style>
 </head>
 <body>
-    <h1>¡Estás en la página de Buscar Profesionales! 🔎</h1>
-    <p>Aquí es donde los usuarios podrán explorar los perfiles de los trabajadores.</p>
-    <p><a href="index.html">Volver a la página principal</a></p>
+    <header class="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <i class="fas fa-handshake"></i> ManosUY<span>M</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="foro-proyectos.html">FORO</a></li>
+                    <li><a href="para-trabajadores.html">TRABAJADORES</a></li>
+                    <li><a href="login.html" class="btn-login">Iniciar sesion</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="content-section">
+            <h1>¡Únete a ManosUY como Profesional! 👷‍♀️</h1>
+            <p>Conecta con clientes que buscan tus habilidades en todo Uruguay. Amplía tu cartera de proyectos y gestiona tus servicios de forma eficiente.</p>
+            
+            <h2>Beneficios de ser un Profesional en ManosUY:</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Acceso a Proyectos</h3>
+                    <p>Encuentra fácilmente proyectos de construcción y mantenimiento cerca de ti.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Reputación Online</h3>
+                    <p>Construye un perfil sólido con calificaciones y reseñas de tus trabajos.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Pagos Seguros</h3>
+                    <p>Garantizamos transacciones seguras y transparentes para tu tranquilidad.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Crece tu Negocio</h3>
+                    <p>Atrae nuevos clientes y expande tu presencia en el mercado.</p>
+                </div>
+            </div>
+            
+            <a href="registro-profesional.html" class="btn-register">¡Regístrate Ahora como Profesional!</a>
+            <a href="index.html" class="back-link" style="margin-top: 20px; display: block;">Volver a la página principal</a>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
