@@ -4,17 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - ManosUY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; background-color: #e6ffe6; margin: 0; }
-        h1 { color: #2C3E50; text-align: center; font-size: 2.5em; }
-        p { margin-top: 20px; text-align: center; font-size: 1.2em; }
-        a { color: #228B22; text-decoration: none; font-weight: bold; }
-        a:hover { text-decoration: underline; }
+        :root {
+            --color-text-dark: #333333;
+            --color-orange-accent: #FFA500;
+            --color-light-gray-bg: #F0F0F0;
+            --color-white-bg: #FFFFFF;
+        }
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; box-sizing: border-box; color: var(--color-text-dark); background-color: var(--color-white-bg); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; width: 100%; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .header { background-color: var(--color-white-bg); padding: 20px 0; border-bottom: 1px solid #E0E0E0; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .logo { font-family: 'Arial', sans-serif; font-size: 32px; font-weight: bold; color: var(--color-text-dark); text-decoration: none; display: flex; align-items: center; }
+        .logo i { margin-right: 8px; color: var(--color-orange-accent); font-size: 1em; }
+        .logo span { color: var(--color-orange-accent); margin-left: 5px; }
+        .nav-links { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; }
+        .nav-links li { margin-left: 25px; }
+        .nav-links a { text-decoration: none; color: var(--color-text-dark); font-weight: normal; font-size: 18px; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--color-orange-accent); }
+        .nav-links .btn-login { background-color: transparent; color: var(--color-text-dark); padding: 10px 20px; border: 2px solid var(--color-text-dark); border-radius: 5px; font-weight: normal; transition: background-color 0.3s ease, border-color 0.3s ease; }
+        .nav-links .btn-login:hover { background-color: var(--color-light-gray-bg); border-color: var(--color-orange-accent); }
+        
+        .login-section {
+            background-color: var(--color-white-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px; /* Ancho máximo para el formulario */
+            text-align: center;
+        }
+        .login-section h1 {
+            color: var(--color-text-dark);
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--color-text-dark);
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .btn-login-submit {
+            background-color: var(--color-orange-accent);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%; /* Botón al 100% */
+        }
+        .btn-login-submit:hover {
+            background-color: #e09400;
+        }
+        .forgot-password, .register-link {
+            display: block;
+            margin-top: 15px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .forgot-password:hover, .register-link:hover {
+            text-decoration: underline;
+        }
+        .register-link a {
+            color: var(--color-orange-accent);
+            font-weight: bold;
+        }
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; align-items: center; }
+            .nav-links { margin-top: 20px; }
+            .nav-links li { margin: 0 10px 10px 0; }
+            .login-section { padding: 25px; }
+            .login-section h1 { font-size: 1.8em; }
+        }
     </style>
 </head>
 <body>
-    <h1>Página de Inicio de Sesión 🚪</h1>
-    <p>Aquí los usuarios y trabajadores podrán ingresar a sus cuentas.</p>
-    <p><a href="index.html">Volver a la página principal</a></p>
+    <header class="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <i class="fas fa-handshake"></i> ManosUY<span>M</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="foro-proyectos.html">FORO</a></li>
+                    <li><a href="para-trabajadores.html">TRABAJADORES</a></li>
+                    <li><a href="login.html" class="btn-login">Iniciar sesion</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="login-section">
+            <h1>Iniciar Sesión 🚪</h1>
+            <form>
+                <div class="form-group">
+                    <label for="username">Usuario o Email:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-login-submit">Ingresar</button>
+            </form>
+            <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+            <p class="register-link">¿No tienes cuenta? <a href="registro-profesional.html">Regístrate aquí</a></p>
+            <a href="index.html" class="back-link" style="margin-top: 20px; display: block; color: var(--color-orange-accent); text-decoration: none;">Volver a la página principal</a>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
